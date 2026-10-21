@@ -1,0 +1,274 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Gauri 💗</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #fff4f7;
+  color: #71354e;
+  font-family: Georgia, serif;
+  text-align: center;
+}
+
+.hero {
+  min-height: 95vh;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ffe0eb, #fff8f0);
+}
+
+.tag {
+  color: #b83f68;
+  letter-spacing: 3px;
+  font: 12px Arial, sans-serif;
+}
+
+h1 {
+  font-size: clamp(42px, 9vw, 75px);
+  line-height: 1.1;
+  color: #b83f68;
+  margin: 22px 0;
+}
+
+h2 { color: #b83f68; }
+
+p {
+  font: 16px/1.8 Arial, sans-serif;
+}
+
+button {
+  border: none;
+  border-radius: 30px;
+  padding: 14px 25px;
+  margin: 12px;
+  background: #bd5078;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+button:hover { background: #923453; }
+
+section { padding: 55px 18px; }
+
+.gallery {
+  max-width: 900px;
+  margin: 30px auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border: 6px solid white;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px #d99bb344;
+  cursor: pointer;
+}
+
+.letter {
+  max-width: 650px;
+  margin: auto;
+  padding: 30px;
+  border-radius: 22px;
+  background: white;
+  box-shadow: 0 5px 25px #d99bb322;
+}
+
+#surprise {
+  display: none;
+  max-width: 600px;
+  margin: 25px auto;
+}
+
+#lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background: #21121dee;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+}
+
+#lightbox img {
+  max-width: 95%;
+  max-height: 85vh;
+  object-fit: contain;
+}
+
+.heart {
+  position: fixed;
+  top: -30px;
+  z-index: 20;
+  pointer-events: none;
+  animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+footer { padding: 30px; }
+
+@media(max-width: 480px) {
+  .gallery img { height: 190px; }
+}
+</style>
+</head>
+
+<body>
+
+<header class="hero">
+  <div class="tag">♡ A LITTLE SURPRISE FOR YOU ♡</div>
+
+  <h1>Happy Birthday,<br>Gauri! 💗</h1>
+
+  <p>22 October · Your special day ✨</p>
+  <p>Someone made a little something just for you.</p>
+
+  <button onclick="document.getElementById('memories').scrollIntoView({behavior:'smooth'})">
+    Open Your Surprise 💌
+  </button>
+</header>
+
+<section id="memories">
+  <div class="tag">LITTLE MOMENTS, LOVELY MEMORIES</div>
+  <h2>Your Photo Gallery 📸</h2>
+  <p>Tap any picture to see it bigger! ♡</p>
+
+  <div class="gallery" id="gallery"></div>
+</section>
+
+<section>
+  <div class="letter">
+    <div class="tag">A BIRTHDAY LETTER</div>
+    <h2>For You, Gauri 💌</h2>
+
+    <p>
+      Happy Birthday, Gauri! ♡
+      Today is all about celebrating you and
+      all the little things that make you special.
+    </p>
+
+    <p>
+      May your days be filled with laughter,
+      your heart with happiness, and your life
+      with beautiful memories and amazing surprises.
+    </p>
+
+    <p>
+      Keep smiling, keep shining, and never stop
+      being the wonderful person you are.
+      You deserve a truly lovely year ahead! 🌷
+    </p>
+
+    <h3>Have the best birthday ever! 🎂</h3>
+  </div>
+</section>
+
+<section>
+  <div class="tag">PSST... ONE LAST THING</div>
+  <h2>A Little Birthday Magic ✨</h2>
+  <p>Close your eyes, make a wish, and tap below!</p>
+
+  <button onclick="makeWish()">Make a Wish 💖</button>
+
+  <div id="surprise">
+    <h2>Surprise, Gauri! 🌸</h2>
+    <p>
+      May this new chapter bring you wonderful
+      adventures, genuine smiles, unexpected
+      happiness, and dreams coming true.
+    </p>
+    <p>
+      Sending you lots of birthday wishes
+      and positive vibes! 💗
+    </p>
+    <h2>Happy Birthday! ♡</h2>
+  </div>
+</section>
+
+<div id="lightbox" onclick="closePhoto()">
+  <button style="position:absolute;top:10px;right:10px"
+          onclick="closePhoto()">Close ✕</button>
+  <img id="bigPhoto" alt="Birthday photo">
+</div>
+
+<footer>
+  Made with ♡ especially for Gauri · 22 October
+</footer>
+
+<script>
+/*
+  PASTE YOUR FIVE PHOTO DATA URLs IN THE ARRAY BELOW.
+  Each must start with:
+  data:image/jpeg;base64,
+*/
+const photos = [
+  "PASTE_PHOTO_1_DATA_URL_HERE",
+  "PASTE_PHOTO_2_DATA_URL_HERE",
+  "PASTE_PHOTO_3_DATA_URL_HERE",
+  "PASTE_PHOTO_4_DATA_URL_HERE",
+  "PASTE_PHOTO_5_DATA_URL_HERE"
+];
+
+const gallery = document.getElementById("gallery");
+
+photos.forEach((src, index) => {
+  const img = document.createElement("img");
+  img.alt = "Gauri birthday memory " + (index + 1);
+  img.src = src;
+  img.onclick = () => openPhoto(src);
+  gallery.appendChild(img);
+});
+
+function openPhoto(src) {
+  document.getElementById("bigPhoto").src = src;
+  document.getElementById("lightbox").style.display = "flex";
+}
+
+function closePhoto() {
+  document.getElementById("lightbox").style.display = "none";
+}
+
+function makeWish() {
+  document.getElementById("surprise").style.display = "block";
+
+  const symbols = ["💗", "♡", "✨", "🌸", "💕"];
+
+  for (let i = 0; i < 45; i++) {
+    const heart = document.createElement("span");
+    heart.className = "heart";
+    heart.textContent =
+      symbols[Math.floor(Math.random() * symbols.length)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (16 + Math.random() * 20) + "px";
+    heart.style.animationDuration = (2 + Math.random() * 3) + "s";
+
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 5000);
+  }
+}
+</script>
+
+</body>
+</html>
