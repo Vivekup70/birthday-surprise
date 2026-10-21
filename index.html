@@ -7,217 +7,169 @@
 <title>Happy Birthday Gauri 💗</title>
 
 <style>
-* { box-sizing: border-box; }
-
-body {
-  margin: 0;
-  background: #fff4f7;
-  color: #71354e;
-  font-family: Georgia, serif;
-  text-align: center;
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Georgia,serif;
+  text-align:center;
+  color:#71354e;
+  background:linear-gradient(135deg,#fff0f6,#ffe0eb,#fff8f0);
+  transition:background .4s,color .4s;
 }
-
-.hero {
-  min-height: 95vh;
-  padding: 80px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #ffe0eb, #fff8f0);
+header{
+  min-height:90vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:35px 20px;
+  background:linear-gradient(135deg,#ffd6e7,#fff0eb,#ffe3f0);
 }
-
-.tag {
-  color: #b83f68;
-  letter-spacing: 3px;
-  font: 12px Arial, sans-serif;
+h1{font-size:clamp(38px,9vw,65px);margin:15px 0}
+h2{color:#b83f68}
+p{line-height:1.8}
+.tag{letter-spacing:3px;font:12px Arial,sans-serif}
+button{
+  border:0;border-radius:30px;padding:14px 22px;
+  margin:8px;background:#db5078;color:white;
+  font-size:15px;cursor:pointer;
+  transition:transform .2s,box-shadow .2s;
 }
-
-h1 {
-  font-size: clamp(42px, 9vw, 75px);
-  line-height: 1.1;
-  color: #b83f68;
-  margin: 22px 0;
+button:hover{transform:translateY(-3px);box-shadow:0 7px 18px #e7548050}
+section{padding:45px 16px}
+.card{
+  max-width:680px;margin:22px auto;padding:25px 18px;
+  border-radius:25px;background:#ffffffc9;
+  box-shadow:0 10px 35px #e7548020;
 }
-
-h2 { color: #b83f68; }
-
-p {
-  font: 16px/1.8 Arial, sans-serif;
+.gallery{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;max-width:900px;margin:25px auto;
 }
-
-button {
-  border: none;
-  border-radius: 30px;
-  padding: 14px 25px;
-  margin: 12px;
-  background: #bd5078;
-  color: white;
-  cursor: pointer;
-  font-size: 15px;
+.gallery img{
+  width:100%;height:240px;object-fit:cover;
+  border:6px solid white;border-radius:20px;
+  box-shadow:0 8px 22px #d99bb344;
+  cursor:pointer;transition:transform .25s;
 }
-
-button:hover { background: #923453; }
-
-section { padding: 55px 18px; }
-
-.gallery {
-  max-width: 900px;
-  margin: 30px auto;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
+.gallery img:hover{transform:scale(1.025)}
+.letter{
+  display:none;text-align:left;line-height:1.9;
+  padding:22px;background:#fff0f6;border-radius:18px;
+  margin-top:18px;animation:pop .4s ease;
 }
-
-.gallery img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-  border: 6px solid white;
-  border-radius: 16px;
-  box-shadow: 0 5px 20px #d99bb344;
-  cursor: pointer;
+.letter.show{display:block}
+#lightbox{
+  display:none;position:fixed;inset:0;z-index:10000;
+  background:#180d20ed;align-items:center;justify-content:center;
+  flex-direction:column;padding:20px;
 }
-
-.letter {
-  max-width: 650px;
-  margin: auto;
-  padding: 30px;
-  border-radius: 22px;
-  background: white;
-  box-shadow: 0 5px 25px #d99bb322;
+#bigPhoto{max-width:95%;max-height:75vh;object-fit:contain;border-radius:15px}
+.float-heart{
+  position:fixed;bottom:-40px;z-index:9999;
+  pointer-events:none;animation:floatUp 4s ease-out forwards;
 }
-
-#surprise {
-  display: none;
-  max-width: 600px;
-  margin: 25px auto;
+footer{padding:25px;font-size:14px}
+body.night{
+  background:#211b35;color:#fff0f8;
 }
-
-#lightbox {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 10;
-  background: #21121dee;
-  align-items: center;
-  justify-content: center;
-  padding: 15px;
+body.night header{background:linear-gradient(135deg,#342747,#211b35)}
+body.night .card{background:#342747;color:#fff0f8}
+body.night h2{color:#ffb4d0}
+body.night .letter{background:#46304f;color:#fff0f8}
+@keyframes pop{
+  from{opacity:0;transform:translateY(12px)}
+  to{opacity:1;transform:translateY(0)}
 }
-
-#lightbox img {
-  max-width: 95%;
-  max-height: 85vh;
-  object-fit: contain;
+@keyframes floatUp{
+  to{transform:translateY(-110vh) rotate(25deg);opacity:0}
 }
-
-.heart {
-  position: fixed;
-  top: -30px;
-  z-index: 20;
-  pointer-events: none;
-  animation: fall 3s linear forwards;
-}
-
-@keyframes fall {
-  to {
-    transform: translateY(110vh) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-footer { padding: 30px; }
-
-@media(max-width: 480px) {
-  .gallery img { height: 190px; }
+@media(max-width:450px){
+  .gallery img{height:190px}
+  section{padding:35px 12px}
 }
 </style>
 </head>
 
 <body>
 
-<header class="hero">
-  <div class="tag">♡ A LITTLE SURPRISE FOR YOU ♡</div>
-
+<header>
+  <div class="tag">A LITTLE SURPRISE MADE WITH LOVE ✨</div>
   <h1>Happy Birthday,<br>Gauri! 💗</h1>
-
-  <p>22 October · Your special day ✨</p>
-  <p>Someone made a little something just for you.</p>
-
+  <p>🌸 22 October 🌸</p>
+  <p>A special day for a wonderful friend.</p>
+  <button onclick="hearts()">💖 Tap for birthday magic</button>
   <button onclick="document.getElementById('memories').scrollIntoView({behavior:'smooth'})">
-    Open Your Surprise 💌
+    📸 Explore your memories
   </button>
 </header>
 
 <section id="memories">
-  <div class="tag">LITTLE MOMENTS, LOVELY MEMORIES</div>
-  <h2>Your Photo Gallery 📸</h2>
+  <h2>Our Little Memories 📸</h2>
   <p>Tap any picture to see it bigger! ♡</p>
 
   <div class="gallery" id="gallery"></div>
 </section>
 
 <section>
-  <div class="letter">
-    <div class="tag">A BIRTHDAY LETTER</div>
-    <h2>For You, Gauri 💌</h2>
+  <div class="card">
+    <h2>💌 A Little Letter for You</h2>
+    <p>There's something special waiting for you...</p>
+    <button onclick="toggleLetter()">Open your secret letter 💌</button>
 
-    <p>
-      Happy Birthday, Gauri! ♡
-      Today is all about celebrating you and
-      all the little things that make you special.
-    </p>
+    <div class="letter" id="letter">
+      <h2>Dear Gauri 🌷</h2>
+      Happy Birthday! 🎂💖
 
-    <p>
-      May your days be filled with laughter,
-      your heart with happiness, and your life
-      with beautiful memories and amazing surprises.
-    </p>
+      <p>
+        I hope your birthday is filled with happiness,
+        laughter, beautiful memories and lovely surprises.
+        May this new chapter bring you wonderful adventures,
+        exciting opportunities and countless reasons to smile.
+      </p>
 
-    <p>
-      Keep smiling, keep shining, and never stop
-      being the wonderful person you are.
-      You deserve a truly lovely year ahead! 🌷
-    </p>
+      <p>
+        Keep being the amazing person you are.
+        Never stop dreaming, laughing and making beautiful
+        memories. You deserve a year full of good things! ✨
+      </p>
 
-    <h3>Have the best birthday ever! 🎂</h3>
+      <p>Wishing you the happiest birthday ever! 💗</p>
+      <p>With lots of birthday wishes, 🌸</p>
+    </div>
   </div>
 </section>
 
 <section>
-  <div class="tag">PSST... ONE LAST THING</div>
-  <h2>A Little Birthday Magic ✨</h2>
-  <p>Close your eyes, make a wish, and tap below!</p>
-
-  <button onclick="makeWish()">Make a Wish 💖</button>
-
-  <div id="surprise">
-    <h2>Surprise, Gauri! 🌸</h2>
-    <p>
-      May this new chapter bring you wonderful
-      adventures, genuine smiles, unexpected
-      happiness, and dreams coming true.
-    </p>
-    <p>
-      Sending you lots of birthday wishes
-      and positive vibes! 💗
-    </p>
-    <h2>Happy Birthday! ♡</h2>
+  <div class="card">
+    <h2>🎁 A Birthday Gift!</h2>
+    <p id="giftText">A tiny surprise is waiting just for you.</p>
+    <button onclick="openGift()">🎁 Open your gift</button>
   </div>
+
+  <div class="card">
+    <h2>🌟 Make a Birthday Wish</h2>
+    <p>Close your eyes for a moment and think of something wonderful.</p>
+    <button onclick="wish()">✨ Make a wish</button>
+    <p id="wishText"></p>
+  </div>
+
+  <button onclick="toggleNight()">🌙 Switch day / night theme</button>
+  <button onclick="hearts()">💗 More floating hearts!</button>
 </section>
 
 <div id="lightbox" onclick="closePhoto()">
-  <button style="position:absolute;top:10px;right:10px"
-          onclick="closePhoto()">Close ✕</button>
-  <img id="bigPhoto" alt="Birthday photo">
+  <button onclick="closePhoto()">Close ✕</button>
+  <img id="bigPhoto" alt="Gauri's birthday memory">
+  <p style="color:white">A beautiful memory 💗</p>
 </div>
 
 <footer>
-  Made with ♡ especially for Gauri · 22 October
+  Made with ♡ especially for Gauri · 22 October 🎂
 </footer>
 
 <script>
-
 const photos = [
   "IMG_20261021_143636_937.jpg",
   "IMG_20261021_145403_145.jpg",
@@ -225,43 +177,71 @@ const photos = [
   "IMG_20261021_145452_118.jpg",
   "IMG_20261021_145456_008.jpg"
 ];
-  
+
 const gallery = document.getElementById("gallery");
 
-photos.forEach((src, index) => {
+photos.forEach((src,index)=>{
   const img = document.createElement("img");
-  img.alt = "Gauri birthday memory " + (index + 1);
   img.src = src;
-  img.onclick = () => openPhoto(src);
+  img.alt = "Gauri birthday memory " + (index+1);
+  img.loading = "lazy";
+  img.onclick = ()=>openPhoto(src);
   gallery.appendChild(img);
 });
 
-function openPhoto(src) {
+function openPhoto(src){
   document.getElementById("bigPhoto").src = src;
   document.getElementById("lightbox").style.display = "flex";
 }
 
-function closePhoto() {
+function closePhoto(){
   document.getElementById("lightbox").style.display = "none";
 }
 
-function makeWish() {
-  document.getElementById("surprise").style.display = "block";
+function toggleLetter(){
+  document.getElementById("letter").classList.toggle("show");
+}
 
-  const symbols = ["💗", "♡", "✨", "🌸", "💕"];
+let giftOpened = false;
 
-  for (let i = 0; i < 45; i++) {
+function openGift(){
+  const text = document.getElementById("giftText");
+
+  if(!giftOpened){
+    text.innerHTML =
+      "🎉 Surprise, Gauri! 💗<br><br>" +
+      "May your dreams grow bigger, your smiles get brighter, " +
+      "and your year be full of beautiful adventures! 🌸✨";
+    giftOpened = true;
+    hearts();
+  }else{
+    text.innerHTML = "Sending you another big birthday hug in the form of good wishes! 💕";
+    hearts();
+  }
+}
+
+function wish(){
+  document.getElementById("wishText").textContent =
+    "✨ May your birthday wish find its way to something wonderful! 💖";
+  hearts();
+}
+
+function toggleNight(){
+  document.body.classList.toggle("night");
+}
+
+function hearts(){
+  const symbols = ["💗","💕","💖","✨","🌸","💝"];
+
+  for(let i=0;i<28;i++){
     const heart = document.createElement("span");
-    heart.className = "heart";
-    heart.textContent =
-      symbols[Math.floor(Math.random() * symbols.length)];
-
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = (16 + Math.random() * 20) + "px";
-    heart.style.animationDuration = (2 + Math.random() * 3) + "s";
-
+    heart.className = "float-heart";
+    heart.textContent = symbols[Math.floor(Math.random()*symbols.length)];
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = (18+Math.random()*22) + "px";
+    heart.style.animationDelay = Math.random()*1.5 + "s";
     document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 5000);
+    setTimeout(()=>heart.remove(),5000);
   }
 }
 </script>
